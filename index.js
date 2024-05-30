@@ -99,7 +99,7 @@ const waitForLink = ({ searchLinkString = 'http', imap, timeOut = 120000 , type 
             searchLinkString: searchLinkString,
             imap: imap
         }
-        query.searchLinkString = String(query.searchLinkString).toLowerCase()
+        query.searchLinkString = String(query.searchLinkString)
         var wait_time = Date.now()
         var while_status = true
         var response_status = {
@@ -115,7 +115,7 @@ const waitForLink = ({ searchLinkString = 'http', imap, timeOut = 120000 , type 
                         query_response.data.inbox_data.forEach(item => {
                             try {
                                 var new_v = item.html
-                                new_v = String(new_v).toLowerCase()
+                                new_v = String(new_v)
                                 const { document } = (new JSDOM(new_v)).window;
                                 document.querySelectorAll('a').forEach(i2 => {
                                     try {
